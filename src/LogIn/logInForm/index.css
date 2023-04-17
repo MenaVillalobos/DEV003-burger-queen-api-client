@@ -1,3 +1,10 @@
-.LogInWelcome {
-    background-color: orange;
+@media (max-width: 1024px){
+    .LogInForm {
+        background-color: #F10909;
+    }
+    .emailInput{
+        background-color: #FFDB98;
+        border: none;
+        border-radius: 2px;
+    }
 }
