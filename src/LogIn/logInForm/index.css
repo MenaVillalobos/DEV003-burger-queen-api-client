@@ -1,10 +1,78 @@
-@media (max-width: 1024px){
+@media (max-width: 1600px){
     .LogInForm {
-        background-color: #F10909;
+        background-color: #f10909f5;
+        display: flex;
+        flex-direction:column;
+        padding: 20px;
+        width: 40%;
+        align-items: center;
     }
-    .emailInput{
+    .welcomeTxtMsg{
+        color: #FFE604;
+        font-family: revert;
+        font-weight: bold;
+        font-size: 60px;
+        margin: 0;
+    }
+    .logoWelcomePage{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .welcomeRedLogo{
+        width: 210px;
+        height: 200px;
+    }
+    .userForm{
+        background-color: #FFC164;
+        height: 50%;
+        width: 100%;
+        border: none;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+    }
+    .logInMessage{
+        height: 80px;
+    }
+    .logInMsg{
+        color: #C90000;
+        margin: 0;
+        border: none;
+        border-radius: 2px;
+        font-family: revert;
+        font-weight: bold;
+        font-size: 35px;
+    }
+    .emailInput, .passwordInput{
         background-color: #FFDB98;
         border: none;
         border-radius: 2px;
+        font-family: revert;
+        font-size: 25px;
+        width: 100%;
+    }
+    .emailTxt, .pawwsordTxt{
+        margin: 10px;
+        font-family: revert;
+        font-weight: bold;
+        font-size: 25px;
+        align-self: start;
+    }
+    .buttonDiv{
+        padding-top: 25px;
+    }
+    .ingresarBtn{
+        background-color: #FF2F2F;
+        border: none;
+        border-radius: 4px;
+        color: #FFE600;
+        font-family: revert;
+        font-weight: bold;
+        font-size: 25px;
+        padding: 16px;
     }
 }

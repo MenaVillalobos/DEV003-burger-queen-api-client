@@ -1,3 +1,6 @@
-.LogInWelcome {
-    background-color: orange;
+@media (max-width: 1600px){
+    .LogInWelcome {
+        background-color: orange;
+        width: 80%;
+    }
 }
