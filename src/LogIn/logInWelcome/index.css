@@ -1,6 +1,40 @@
 @media (max-width: 1600px){
     .LogInWelcome {
-        background-color: orange;
+        background-color: rgba(245, 136, 33, 0.912);
         width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .bQtxtLogo{
+        height: 40%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .burgerQlogo{
+        height: 90%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .welcomeContainer{
+        height: 50%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 40px;
+    }
+    .squidwardContainer{
+        display: flex;
+        justify-content: center;
+        width: 98%;
+        height: 116%;
+    }
+    .welcomeGif{
+        width: 100%;
     }
 }

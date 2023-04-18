@@ -1,0 +1,107 @@
+.menuGralContainer{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction:column;
+}
+.redHeaderCont {
+    background-color: rgb(241 9 9 / 90%);
+    height: 15%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.headerImg{
+    width: 36%;
+    height: 100%;
+}
+.headerWaitress, .headerWaiter{
+    height: 100%;
+    width: 30%;
+}
+.waitersContainer{
+    display: flex;
+}
+.waitersName{
+    display: flex;
+    justify-content: flex-start;
+    color: #FFE604;
+    font-size: 25px;
+    margin: 0;
+}
+
+.mainAndItemsCont{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: calc(85% - 20px);
+
+}
+.menusView{
+    background-color: rgba(255, 122, 0, 0.58);
+    height: 100%;
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+.menusLetter{
+    display: flex;
+    justify-content: space-around;
+}
+.breakfastLetter, .allDayLetter{
+    width: 150px;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    border-radius: 6px;
+}
+.breakfastLetter{
+    background-color: #FFE604;
+}
+.allDayLetter{
+    background-color: #E93030;
+}
+.breakfastTxt, .allDayTxt{
+    font-size: 25px;
+    font-family: revert;
+    font-weight: bold;
+    color: #FF7715;
+    display: flex;
+    padding: 10px;
+}
+.breakfastTxt{
+    color: #FF7715;
+}
+.allDayTxt{
+    color: #FFFF;
+}
+.menuOptions{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    height: 85%;
+}
+.breakfastBtns{
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+    flex-wrap: wrap;
+    height: 60%;
+}
+.allDayBtns{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    overflow: scroll;
+    height: 82%;
+    width: 50%;
+    margin-top: 25px;
+}
+.items{
+    background-color: #ff6a00d7;
+    height: 100%;
+    width: 25%;
+    padding: 10px;
+}
