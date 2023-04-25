@@ -62,8 +62,24 @@
         font-size: 25px;
         align-self: start;
     }
+    .errorDiv{
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .errorTxt{
+        color: #ff0000;
+        font-family: revert;
+        font-weight: bold;
+        font-size: 20px;
+        margin-top: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
     .buttonDiv{
-        padding-top: 25px;
+        padding-top: 12px;
     }
     .ingresarBtn{
         background-color: #FF2F2F;

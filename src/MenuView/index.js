@@ -15,9 +15,49 @@ import water1 from '../imgsBQ/UserHist2/Menu Icons/modalIcons/Para tomar/water50
 import water2 from '../imgsBQ/UserHist2/Menu Icons/modalIcons/Para tomar/water750ml.png'
 import soda1 from '../imgsBQ/UserHist2/Menu Icons/modalIcons/Para tomar/sodaCan1stOpt.png'
 import soda2 from '../imgsBQ/UserHist2/Menu Icons/modalIcons/Para tomar/bigSoda1stOpt.webp'
+import { useEffect, useState } from 'react'
+import { getCookie } from '../Utils'
+
 
 
 function MenuView() {
+
+    const [breakfastMenu, setbreakfastMenu] = useState([]);
+    const [allDayMenu, setallDayMenu] = useState([]);
+
+    useEffect(() => { // EN CICLO DE VIDA ESTO ES componentDidMount
+        console.log('SE CREÓ EL MENU!!!!!')
+        const getCookieResult = getCookie('token');
+        console.log(getCookieResult);
+        const response = fetch('http://localhost:8080/products', {
+            headers: {
+                'Content-type': 'application/json',
+                'Authorization': `Bearer ${getCookieResult}`
+            },
+        })
+            .then(answer => answer.json())
+            .then(json => {
+                const productosDesayuno = json.filter((product) => {
+                    // if(product.type === 'Desayuno') {
+                    //     return true;
+                    // } else {
+                    //     return false;
+                    // }
+
+                    return (product.type === 'Desayuno')// return false;
+                })
+                console.log(productosDesayuno);
+                setbreakfastMenu(productosDesayuno);
+
+                const productosAlmuerzo = json.filter((product) => {
+                    return (product.type === 'Almuerzo')
+                })
+                console.log(productosAlmuerzo);
+                setallDayMenu(productosAlmuerzo);
+            }); //console.log(json)
+            
+    }, []);
+
     const array = [{
         imagen: coffe1,
         producto: 'Café Americano',
@@ -112,14 +152,14 @@ function MenuView() {
                     </div>
                     <div className='menuOptions'>
                         <div className='breakfastBtns'>
-                            {array.map(
+                            {breakfastMenu.map(
                                 (producto) => {
                                     return (<Product productCharacts={producto} />)
                                 }
                             )}
                         </div>
                         <div className='allDayBtns'>
-                            {array2.map(
+                            {allDayMenu.map(
                                 (producto) => {
                                     return (<Product productCharacts={producto} />)
                                 }
