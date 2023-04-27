@@ -29,7 +29,6 @@
     font-size: 25px;
     margin: 0;
 }
-
 .mainAndItemsCont{
     display: flex;
     flex-direction: row;
@@ -60,7 +59,7 @@
     background-color: #FFE604;
 }
 .allDayLetter{
-    background-color: #E93030;
+    background-color: #ff7200;
 }
 .breakfastTxt, .allDayTxt{
     font-size: 25px;
@@ -74,7 +73,7 @@
     color: #FF7715;
 }
 .allDayTxt{
-    color: #FFFF;
+    color: #ffe700;
 }
 .menuOptions{
     display: flex;
@@ -104,4 +103,55 @@
     height: 100%;
     width: 25%;
     padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+.orderTitle{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.artTxt, .artTxt2{
+    margin: 0;
+    color: #FFE604;
+    font-family: revert;
+    font-weight: bolder;
+    font-size: 30px;
+}
+
+.orderContainer{
+    background-color: #FFE604;
+    height: 80%;
+    width: 100%;
+    border-radius: 10px;
+    padding: 4px;
+}
+.customersNameContainer{
+    display: flex;
+    justify-content: center;
+}
+.customersName{
+    background: none;
+    border-bottom-color: red;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+.orderBtnsContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.kitchenBtn{
+    background-color: red;
+    font-size: 25px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-family: revert;
+    font-weight: bolder;
+    padding: 6px;
 }

@@ -3,18 +3,7 @@ import redHeader from '../imgsBQ/UserHist2/redHeaderMenuView.png'
 import waitress from '../imgsBQ/UserHist2/waitress1stOpt.png'
 import waiter from '../imgsBQ/UserHist2/waiter1stOpt.png'
 import Product from './Product'
-import coffe1 from '../imgsBQ/UserHist2/americanCoffe2ndOpt.png'
-import coffe2 from '../imgsBQ/UserHist2/coffeeMilk1stOpt.png'
-import sandwich from '../imgsBQ/UserHist2/sandwich1stOpt.png'
-import juice from '../imgsBQ/UserHist2/fruitJuice1stOpt.png'
-import burger1 from '../imgsBQ/UserHist2/Menu Icons/modalIcons/Hamburguesas/Copia de burgerMenu1stOpt.png'
-import burger2 from '../imgsBQ/UserHist2/Menu Icons/modalIcons/Hamburguesas/doublBurg1stOpt.png'
-import fries from '../imgsBQ/UserHist2/Menu Icons/modalIcons/Acompañamientos/modalFries1stOpt.png'
-import onion from '../imgsBQ/UserHist2/Menu Icons/modalIcons/Acompañamientos/onionRg1stOpt.png'
-import water1 from '../imgsBQ/UserHist2/Menu Icons/modalIcons/Para tomar/water500ml.png'
-import water2 from '../imgsBQ/UserHist2/Menu Icons/modalIcons/Para tomar/water750ml.png'
-import soda1 from '../imgsBQ/UserHist2/Menu Icons/modalIcons/Para tomar/sodaCan1stOpt.png'
-import soda2 from '../imgsBQ/UserHist2/Menu Icons/modalIcons/Para tomar/bigSoda1stOpt.webp'
+
 import { useEffect, useState } from 'react'
 import { getCookie } from '../Utils'
 
@@ -44,7 +33,7 @@ function MenuView() {
                     //     return false;
                     // }
 
-                    return (product.type === 'Desayuno')// return false;
+                    return (product.type === 'Desayuno')
                 })
                 console.log(productosDesayuno);
                 setbreakfastMenu(productosDesayuno);
@@ -57,86 +46,13 @@ function MenuView() {
             }); //console.log(json)
             
     }, []);
-
-    const array = [{
-        imagen: coffe1,
-        producto: 'Café Americano',
-        precio: 'Precio: $5',
-        allDay: false,
-    },
-    {
-        imagen: coffe2,
-        producto: 'Café con leche',
-        precio: 'Precio: $7',
-        allDay: false,
-    },
-    {
-        imagen: sandwich,
-        producto: 'Sándwich',
-        precio: 'Precio: $10',
-        allDay: false,
-    },
-    {
-        imagen: juice,
-        producto: 'Jugo de frutas',
-        precio: 'Precio: $7',
-        allDay: false,
-    }]
-    const array2 = [{
-        imagen: burger1,
-        producto: 'Hamburguesa Simple',
-        precio: 'Precio: $5',
-        allDay: true,
-    },
-    {
-        imagen: burger2,
-        producto: 'Hamburguesa Doble',
-        precio: 'Precio: $7',
-        allDay: true,
-    },
-    {
-        imagen: fries,
-        producto: 'Papas Fritas',
-        precio: 'Precio: $10',
-        allDay: true,
-    },
-    {
-        imagen: onion,
-        producto: 'Aros de Cebolla',
-        precio: 'Precio: $7',
-        allDay: true,
-    },
-    {
-        imagen: water1,
-        producto: 'Agua 500ml',
-        precio: 'Precio: $5',
-        allDay: true,
-    },
-    {
-        imagen: water2,
-        producto: 'Agua 750ml',
-        precio: 'Precio: $7',
-        allDay: true,
-    },
-    {
-        imagen: soda1,
-        producto: 'Gaseosa 500ml',
-        precio: 'Precio: $10',
-        allDay: true,
-    },
-    {
-        imagen: soda2,
-        producto: 'Gaseosa 750ml',
-        precio: 'Precio: $7',
-        allDay: true,
-    }]
     return(
         <div className="menuGralContainer">
             <div className="redHeaderCont">
-                <img className='headerImg' src={redHeader}/>
+                <img className='headerImg' src={redHeader} alt='logo del header'/>
                 <div className='waitersContainer'>
-                    <img className='headerWaitress' src={waitress}/>
-                    <img className='headerWaiter' src={waiter}/>
+                    <img className='headerWaitress' src={waitress} alt='logo header meserA'/>
+                    <img className='headerWaiter' src={waiter} alt='logo header mesero'/>
                     <p className='waitersName'>:__________</p>
                 </div>
             </div>
@@ -167,7 +83,24 @@ function MenuView() {
                         </div>
                     </div>
                 </div>
-                <div className='items'></div>
+                <div className='items'>
+                    <div className='orderTitle'>
+                        <p className='artTxt'>ARTÍCULOS</p>
+                        <p className='artTxt2'>SELECCIONADOS</p>
+                    </div>
+                    <div className='orderContainer'>
+                        <div className='customersNameContainer'>
+                            Clientx:
+                            <input className='customersName'></input>
+                        </div>
+                        <div className='orderBtnsContainer'>
+                            <p className='total'>Total: </p>
+                            <button className='kitchenBtn'>
+                                ¡Enviar a cocina!
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     )
