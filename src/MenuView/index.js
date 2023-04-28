@@ -14,6 +14,12 @@ function MenuView() {
     const [breakfastMenu, setbreakfastMenu] = useState([]);
     const [allDayMenu, setallDayMenu] = useState([]);
 
+    const [selectedProducts, setSelectedProducts] =useState([]);
+
+    const addProduct = (product) => {
+        console.log(product);
+    }
+
     useEffect(() => { // EN CICLO DE VIDA ESTO ES componentDidMount
         console.log('SE CREÓ EL MENU!!!!!')
         const getCookieResult = getCookie('token');
@@ -74,14 +80,14 @@ function MenuView() {
                         <div className='breakfastBtns'>
                             {breakfastMenu.map(
                                 (producto) => {
-                                    return (<Product productCharacts={producto} />)
+                                    return (<Product productCharacts={producto} addProductFn = {addProduct} />)
                                 }
                             )}
                         </div>
                         <div className='allDayBtns'>
                             {allDayMenu.map(
                                 (producto) => {
-                                    return (<Product productCharacts={producto} />)
+                                    return (<Product productCharacts={producto} addProductFn = {addProduct} />)
                                 }
                             )}
                         </div>

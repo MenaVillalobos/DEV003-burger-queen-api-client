@@ -1,11 +1,11 @@
 import './index.css'
 
-function Product (props) {
+function Product ({productCharacts, addProductFn}) {
     return(
-        <div className={`product ${props.productCharacts.type === 'Almuerzo' ? 'allDay': 'breakfast'}`}>
-            <img className='images' src={props.productCharacts.image}/>
-            <div className='productName'>{props.productCharacts.name}</div>
-            <div className='price'>{ `${'$'} ${props.productCharacts.price}`}</div>
+        <div className={`product ${productCharacts.type === 'Almuerzo' ? 'allDay': 'breakfast'}`} onClick={() => addProductFn(productCharacts)}>
+            <img className='images' src={productCharacts.image}/>
+            <div className='productName'>{productCharacts.name}</div>
+            <div className='price'>{ `${'$'} ${productCharacts.price}`}</div>
         </div>
     )
 }
