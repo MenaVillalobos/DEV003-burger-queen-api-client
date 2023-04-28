@@ -2,8 +2,27 @@ import './index.css'
 import redHeader from '../imgsBQ/UserHist2/redHeaderMenuView.png'
 import femChef from '../imgsBQ/UserHist3/femChef1stOpt.png'
 import chef from '../imgsBQ/UserHist3/maleChef1stOpt.png'
+import { useEffect, useState } from 'react'
+import { getCookie } from '../Utils'
 
 function ChefView() {
+    const [idkGetOrders, setidkGetOrders] = useState([]);
+    useEffect(() => {
+        const getCookieResult = getCookie('token');
+        console.log(getCookieResult);
+        const response = fetch('http://localhost:8080/orders', {
+            headers: {
+                'Content-type': 'application/json',
+                'Authorization': `Bearer ${getCookieResult}`
+            },
+        })
+        .then(answer => answer.json())
+        .then(json => {
+            const gettinOrders = json;
+            console.log(gettinOrders);
+            setidkGetOrders(gettinOrders);
+        })
+    }, [])
     return(
         <div className="chefViewGralContainer">
             <div className="redHeader">
