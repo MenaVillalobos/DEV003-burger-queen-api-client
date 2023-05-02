@@ -3,7 +3,7 @@ import redHeader from '../imgsBQ/UserHist2/redHeaderMenuView.png'
 import waitress from '../imgsBQ/UserHist2/waitress1stOpt.png'
 import waiter from '../imgsBQ/UserHist2/waiter1stOpt.png'
 import Product from './Product'
-import { useNavigate } from 'react-router-dom';
+import OrderedItems from './OrderList'
 import { useEffect, useState } from 'react'
 import { getCookie } from '../Utils'
 
@@ -57,10 +57,10 @@ function MenuView() {
             }); //console.log(json)
             
     }, []);
-    const navigate = useNavigate();
-    const handleSendTicket = () =>{
-        navigate('/chefview')
-    }
+    // const navigate = useNavigate();
+    // const handleSendTicket = () =>{
+    //     navigate('/chefview')
+    // }
     return(
         <div className="menuGralContainer">
             <div className="redHeaderCont">
@@ -98,24 +98,7 @@ function MenuView() {
                         </div>
                     </div>
                 </div>
-                <div className='items'>
-                    <div className='orderTitle'>
-                        <p className='artTxt'>ARTÍCULOS</p>
-                        <p className='artTxt2'>SELECCIONADOS</p>
-                    </div>
-                    <div className='orderContainer'>
-                        <div className='customersNameContainer'>
-                            Clientx:
-                            <input className='customersName'></input>
-                        </div>
-                        <div className='orderBtnsContainer'>
-                            <p className='total'>Total: </p>
-                            <button className='kitchenBtn' onClick={handleSendTicket}>
-                                ¡Enviar a cocina!
-                            </button>
-                        </div>
-                    </div>
-                </div>
+                <OrderedItems/>
             </div>
         </div>
     )
