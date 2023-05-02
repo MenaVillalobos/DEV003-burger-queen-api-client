@@ -18,8 +18,9 @@ function MenuView() {
 
     const addProduct = (product) => {
         const matchingId = selectedProducts.find(productElement => productElement.id === product.id);
+        const quantityProducts = {...product, quantity: 1};
         if (!matchingId) {
-            selectedProducts.push(product);
+            selectedProducts.push(quantityProducts);
         }
         console.log(selectedProducts);
     }
