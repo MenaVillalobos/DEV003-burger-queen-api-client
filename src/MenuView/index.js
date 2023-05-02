@@ -17,7 +17,11 @@ function MenuView() {
     const [selectedProducts, setSelectedProducts] =useState([]);
 
     const addProduct = (product) => {
-        console.log(product);
+        const matchingId = selectedProducts.find(productElement => productElement.id === product.id);
+        if (!matchingId) {
+            selectedProducts.push(product);
+        }
+        console.log(selectedProducts);
     }
 
     useEffect(() => { // EN CICLO DE VIDA ESTO ES componentDidMount
