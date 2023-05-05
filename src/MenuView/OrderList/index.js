@@ -1,17 +1,18 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import './index.css'
 import { useNavigate } from 'react-router-dom';
 import trashIcon from '../../imgsBQ/trashAgain.webp'
 
 function OrderedItems({selectedProducts, selectedProductsFn}) {
+    const [totalAmount, setTotalAmount] = useState(0);
     useEffect(() => {
-        console.log('cambió la prop selectedProducts!!!!')
-        // aqui va codigo para calcular el total
-        // hacer un map sobre selectedProducts, tener una variable suma que ira
-        // acumulando las cantidades por cada producto
-        // y usar otra variable con useState para mostrar la suma en la UI
-        // tener cuidado con el campo price pq es un string, convertir a numb
-        // hacer que se vea bonito
+        let sum = 0;
+        selectedProducts.map(producto => {
+            const subTotal = parseFloat(producto.price) * producto.quantity;
+            sum += subTotal;
+        })
+        setTotalAmount(sum);
+        console.log('RESULTADO: ' + sum);
     }, [selectedProducts]);
 
     const navigate = useNavigate();
@@ -20,31 +21,31 @@ function OrderedItems({selectedProducts, selectedProductsFn}) {
     }
     console.log(selectedProducts);
     const increaseQuantity = (id) => {
-        const noSeQueHago = selectedProducts.map(producto => {
+        const increasing = selectedProducts.map(producto => {
             if (producto.id === id) {
                 return {...producto, quantity: producto.quantity+1};
             }
             return producto;
         })
-        selectedProductsFn(noSeQueHago);
+        selectedProductsFn(increasing);
     }
     const decreaseQuantity = (id) => {
-        const noSeQueHago = selectedProducts.map(producto => {
+        const decreasing = selectedProducts.map(producto => {
             if (producto.id === id && producto.quantity > 1) {
                 return {...producto, quantity: producto.quantity-1};
             }
             return producto;
         })
-        selectedProductsFn(noSeQueHago);
+        selectedProductsFn(decreasing);
     }
 
     const deleteProduct = (id) => {
-        const noSeQueHago = selectedProducts.filter((producto) => {
+        const deleting = selectedProducts.filter((producto) => {
             if(producto.id !== id) {
                 return producto;
             }
         })
-        selectedProductsFn(noSeQueHago);
+        selectedProductsFn(deleting);
     }
     return (
         <div className='items'>
@@ -72,7 +73,7 @@ function OrderedItems({selectedProducts, selectedProductsFn}) {
                     )}
                 </div>
                 <div className='orderBtnsContainer'>
-                    <p className='total'>Total: </p>
+                    <p className='total'>Total: {'$' + totalAmount} </p>
                     <button className='kitchenBtn' onClick={handleSendTicket}>
                         ¡Enviar a cocina!
                     </button>
