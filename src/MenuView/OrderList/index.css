@@ -1,30 +1,16 @@
 .items{
     background-color: #ff6a00d7;
     height: 100%;
-    width: 25%;
+    width: 40%;
     padding: 10px;
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
 }
-.orderTitle{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-}
-.artTxt, .artTxt2{
-    margin: 0;
-    color: #FFE604;
-    font-family: revert;
-    font-weight: bolder;
-    font-size: 30px;
-}
-
 .orderContainer{
     background-color: #FFE604;
-    height: 80%;
+    height: 100%;
     width: 100%;
     border-radius: 10px;
     padding: 4px;
@@ -32,19 +18,41 @@
 .customersNameContainer{
     display: flex;
     justify-content: center;
+    font-size: 24px;
+    font-weight: bolder;
 }
 .customersName{
     background: none;
     border-bottom-color: red;
+    border-left-color: red;
     border-top: none;
-    border-left: none;
     border-right: none;
+    justify-content: center;
+    font-size: 26px;
+    width: 60%;
+    display: flex;
 }
 .orderBtnsContainer{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.selectedItemsContainer{
+    margin-top: 6px;
+}
+.orderListProducts{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 8px;
+    font-size: 22px;
+}
+.total{
+    font-size: 30px;
+    margin: 2px;
+    font-weight: bolder;
 }
 .kitchenBtn{
     background-color: red;
@@ -55,4 +63,40 @@
     font-family: revert;
     font-weight: bolder;
     padding: 6px;
+}
+.quantitySpan{
+    background-color: #ffbb3e;
+    width: 40px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+.decrease, .increase{
+    height: 28px;
+    width: 28px;
+    border-radius: 100%;
+    background-color: #ff8600;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.plusSign, .minusSign{
+    font-size: 35px;
+}
+.minusSign{
+    margin-bottom: 5px;
+}
+.deleteBtn{
+    width: 30px;
+    height: 30px;
+    background: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+.deleteIcon{
+    width: 28px;
+    height: 28px;
 }

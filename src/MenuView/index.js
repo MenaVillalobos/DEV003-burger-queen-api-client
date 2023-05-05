@@ -7,8 +7,6 @@ import OrderedItems from './OrderList'
 import { useEffect, useState } from 'react'
 import { getCookie } from '../Utils'
 
-
-
 function MenuView() {
 
     const [breakfastMenu, setbreakfastMenu] = useState([]);
@@ -20,7 +18,10 @@ function MenuView() {
         const matchingId = selectedProducts.find(productElement => productElement.id === product.id);
         const quantityProducts = {...product, quantity: 1};
         if (!matchingId) {
-            selectedProducts.push(quantityProducts);
+            setSelectedProducts((prevState) => [
+                ...prevState,
+                quantityProducts
+            ]);
         }
         console.log(selectedProducts);
     }
@@ -54,13 +55,8 @@ function MenuView() {
                 })
                 console.log(productosAlmuerzo);
                 setallDayMenu(productosAlmuerzo);
-            }); //console.log(json)
-            
+            }); 
     }, []);
-    // const navigate = useNavigate();
-    // const handleSendTicket = () =>{
-    //     navigate('/chefview')
-    // }
     return(
         <div className="menuGralContainer">
             <div className="redHeaderCont">
@@ -98,7 +94,7 @@ function MenuView() {
                         </div>
                     </div>
                 </div>
-                <OrderedItems/>
+                <OrderedItems selectedProducts={selectedProducts} selectedProductsFn={setSelectedProducts}/>
             </div>
         </div>
     )
