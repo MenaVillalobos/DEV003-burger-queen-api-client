@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import './index.css'
 import { useNavigate } from 'react-router-dom';
 import trashIcon from '../../imgsBQ/trashAgain.webp'
+import { getCookie } from '../../Utils'
+
 
 function OrderedItems({selectedProducts, selectedProductsFn}) {
     const [totalAmount, setTotalAmount] = useState(0);
@@ -17,6 +19,26 @@ function OrderedItems({selectedProducts, selectedProductsFn}) {
 
     const navigate = useNavigate();
     const handleSendTicket = () =>{
+        const gettingName = document.getElementById('inputName').value;
+        const orderObject = {
+            userId: window.localStorage.getItem('userId'),
+            client: gettingName,
+            products: selectedProducts,
+            status: 'pending'
+        }
+        console.log(orderObject);
+        const getCookieResult = getCookie('token');
+        fetch('http://localhost:8080/orders', {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+                'Authorization': `Bearer ${getCookieResult}`
+            },
+            body: JSON.stringify(orderObject)
+        }).then(answer => answer.json())
+        .then(answer => {
+            console.log(answer);
+        });
         navigate('/chefview')
     }
     console.log(selectedProducts);
@@ -38,6 +60,7 @@ function OrderedItems({selectedProducts, selectedProductsFn}) {
         })
         selectedProductsFn(decreasing);
     }
+    
 
     const deleteProduct = (id) => {
         const deleting = selectedProducts.filter((producto) => {
@@ -47,12 +70,29 @@ function OrderedItems({selectedProducts, selectedProductsFn}) {
         })
         selectedProductsFn(deleting);
     }
+    // const handleSubmitOrder = () => {
+    //     const orderObject = {
+    //         id: window.localStorage.getItem('userId')
+            
+    //     }
+    //     fetch('http://localhost:8080/orders', {
+    //         method: 'POST',
+    //         headers: {
+    //         'Accept': 'application/json, text/plain, */*',
+    //         'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify(loginObject)
+    //     }).then(answer => answer.json())
+    //     .then(answer => {
+    //         console.log(answer);
+    //     });
+    // }
     return (
         <div className='items'>
             <div className='orderContainer'>
                 <div className='customersNameContainer'>
                     Clientx:
-                    <input className='customersName'></input>
+                    <input className='customersName' id='inputName'></input>
                 </div>
                 <div className='selectedItemsContainer'>
                     {selectedProducts.map(

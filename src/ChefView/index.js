@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 import { getCookie } from '../Utils'
 
 function ChefView() {
-    const [idkGetOrders, setidkGetOrders] = useState([]);
+    const [getOrders, setGetOrders] = useState([]);
     useEffect(() => {
         const getCookieResult = getCookie('token');
         console.log(getCookieResult);
@@ -20,7 +20,7 @@ function ChefView() {
         .then(json => {
             const gettinOrders = json;
             console.log(gettinOrders);
-            setidkGetOrders(gettinOrders);
+            setGetOrders(gettinOrders);
         })
     }, [])
     return(
@@ -44,6 +44,25 @@ function ChefView() {
                         <p className='ticketsViewTxt2'>
                             RECIBIDAS
                         </p>
+                    </div>
+                    <div className='postItContainer'>
+                        {getOrders.map(
+                            (order) => {
+                                    return(<div className='orderPostIt'>
+                                        <div className='postItClientName'>Clientx: {order.client}</div>
+                                        <div className='productNameQuantContainer'>
+                                            {order.products.map((producto)=> {
+                                                return(<div className='postItProduct'>({producto.quantity}) {producto.name}</div>)
+                                            })}
+                                        </div>
+                                        <div className='deliveryBtnContainer'>
+                                            <button className='deliveryBtn'>Para Entregar</button>
+                                        </div>
+                                    </div>)
+                                }
+                            )
+                        }
+
                     </div>
                 </div>
                 <div className='ticketsToDeliveryContainer'>

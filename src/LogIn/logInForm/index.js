@@ -10,7 +10,6 @@ function LogInForm() {
         setloginError(false);
     }
     const handleSubmit = () => {
-        console.log('A U X I L I O');
         const emailTxt = document.getElementById('emailInput').value;
         const passwordTxt = document.getElementById('passwordInput').value;
         const loginObject = {
@@ -33,6 +32,7 @@ function LogInForm() {
                 setloginError(true);
             } else {
                 document.cookie = `token = ${answer.accessToken}`; 
+                window.localStorage.setItem('userId', answer.user.id); // guardar id en localStorage
                 navigate('/menu')
             }
         });

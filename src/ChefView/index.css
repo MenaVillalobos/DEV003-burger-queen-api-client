@@ -41,7 +41,6 @@
     width: 50%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
 }
 .ticketsToDeliveryContainer{
@@ -70,4 +69,43 @@
 .deliveryTxt1, .deliveryTxt2, .ticketsViewTxt1, .ticketsViewTxt2{
     margin: 0;
     font-size: 35px;
+}
+.postItContainer{
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+    padding: 12px;
+    overflow: scroll;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.orderPostIt{
+    background-color: yellow;
+    display: flex;
+    flex-direction: column;
+    border-color: black;
+    border-width: 2px;
+    border-style: solid;
+    padding: 8px;
+}
+.postItClientName{
+    justify-content: center;
+    display: flex;
+    font-weight: bold;
+    font-size: 22px;
+}
+.productNameQuantContainer{
+    font-size: 20px;
+}
+.deliveryBtnContainer{
+    display: flex;
+    justify-content: center;
+    margin-top: 12px;
+}
+.deliveryBtn{
+    width: 60%;
+    font-size: 20px;
+    background: #ff9c0c9e;
+    border-width: 1px;
+    border-radius: 5px;
 }
