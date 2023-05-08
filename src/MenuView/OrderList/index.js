@@ -70,23 +70,6 @@ function OrderedItems({selectedProducts, selectedProductsFn}) {
         })
         selectedProductsFn(deleting);
     }
-    // const handleSubmitOrder = () => {
-    //     const orderObject = {
-    //         id: window.localStorage.getItem('userId')
-            
-    //     }
-    //     fetch('http://localhost:8080/orders', {
-    //         method: 'POST',
-    //         headers: {
-    //         'Accept': 'application/json, text/plain, */*',
-    //         'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify(loginObject)
-    //     }).then(answer => answer.json())
-    //     .then(answer => {
-    //         console.log(answer);
-    //     });
-    // }
     return (
         <div className='items'>
             <div className='orderContainer'>
