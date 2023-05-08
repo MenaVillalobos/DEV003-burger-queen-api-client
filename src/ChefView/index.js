@@ -23,6 +23,21 @@ function ChefView() {
             setGetOrders(gettinOrders);
         })
     }, [])
+    const markOrderToDelivery = (id) => {
+        console.log('hola omis');
+        const getCookieResult = getCookie('token');
+        fetch('http://localhost:8080/orders/' + id, {
+            method: 'PATCH',
+            headers: {
+                'Content-type': 'application/json',
+                'Authorization': `Bearer ${getCookieResult}`
+            },
+            body: JSON.stringify({status: 'delivered'})
+        }).then(answer => answer.json())
+        .then(answer => {
+            console.log(answer);
+        });
+    }
     return(
         <div className="chefViewGralContainer">
             <div className="redHeader">
@@ -49,20 +64,19 @@ function ChefView() {
                         {getOrders.map(
                             (order) => {
                                     return(<div className='orderPostIt'>
-                                        <div className='postItClientName'>Clientx: {order.client}</div>
+                                        <div className='postItClientName'>{order.client}</div>
                                         <div className='productNameQuantContainer'>
                                             {order.products.map((producto)=> {
-                                                return(<div className='postItProduct'>({producto.quantity}) {producto.name}</div>)
+                                                return(<div className='postItProduct'>({producto.quantity} {producto.name}</div>)
                                             })}
                                         </div>
                                         <div className='deliveryBtnContainer'>
-                                            <button className='deliveryBtn'>Para Entregar</button>
+                                            <button className='deliveryBtn' onClick={ () => markOrderToDelivery(order.id)}>Para Entregar</button>
                                         </div>
                                     </div>)
                                 }
                             )
                         }
-
                     </div>
                 </div>
                 <div className='ticketsToDeliveryContainer'>
