@@ -4,12 +4,15 @@ import femChef from '../imgsBQ/UserHist3/femChef1stOpt.png'
 import chef from '../imgsBQ/UserHist3/maleChef1stOpt.png'
 import { useEffect, useState } from 'react'
 import { getCookie } from '../Utils'
+import DeliveryOrders from '../ChefView/Delivery'
 
 function ChefView() {
     const [getOrders, setGetOrders] = useState([]);
-    useEffect(() => {
+    const [pendingOrders, setPendingOrders] = useState([]);
+    const [deliveredOrders, setDeliveredOrders] = useState([]);
+
+    const getOrdersRequest = () => {
         const getCookieResult = getCookie('token');
-        console.log(getCookieResult);
         const response = fetch('http://localhost:8080/orders', {
             headers: {
                 'Content-type': 'application/json',
@@ -21,10 +24,22 @@ function ChefView() {
             const gettinOrders = json;
             console.log(gettinOrders);
             setGetOrders(gettinOrders);
+            const statusPending = json.filter((order) => {
+                return (order.status === 'pending')
+            })
+            setPendingOrders(statusPending);
+
+            const statusDelivered = json.filter((order) => {
+                return (order.status === 'delivered')
+            })
+            setDeliveredOrders(statusDelivered);
         })
+    }
+    
+    useEffect(() => {
+        getOrdersRequest();
     }, [])
     const markOrderToDelivery = (id) => {
-        console.log('hola omis');
         const getCookieResult = getCookie('token');
         fetch('http://localhost:8080/orders/' + id, {
             method: 'PATCH',
@@ -35,7 +50,7 @@ function ChefView() {
             body: JSON.stringify({status: 'delivered'})
         }).then(answer => answer.json())
         .then(answer => {
-            console.log(answer);
+            getOrdersRequest();
         });
     }
     return(
@@ -61,13 +76,13 @@ function ChefView() {
                         </p>
                     </div>
                     <div className='postItContainer'>
-                        {getOrders.map(
+                        {pendingOrders.map(
                             (order) => {
                                     return(<div className='orderPostIt'>
                                         <div className='postItClientName'>{order.client}</div>
                                         <div className='productNameQuantContainer'>
                                             {order.products.map((producto)=> {
-                                                return(<div className='postItProduct'>({producto.quantity} {producto.name}</div>)
+                                                return(<div className='postItProduct'>({producto.quantity}) {producto.name}</div>)
                                             })}
                                         </div>
                                         <div className='deliveryBtnContainer'>
@@ -87,6 +102,9 @@ function ChefView() {
                         <p className='deliveryTxt2'>
                             LISTAS
                         </p>
+                    </div>
+                    <div className='deliveryPostIt'>
+                        <DeliveryOrders deliveryOrders= {deliveredOrders}/>
                     </div>
                 </div>
             </div>

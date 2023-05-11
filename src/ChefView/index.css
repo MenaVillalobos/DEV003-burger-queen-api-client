@@ -83,9 +83,6 @@
     background-color: yellow;
     display: flex;
     flex-direction: column;
-    border-color: black;
-    border-width: 2px;
-    border-style: solid;
     padding: 8px;
 }
 .postItClientName{

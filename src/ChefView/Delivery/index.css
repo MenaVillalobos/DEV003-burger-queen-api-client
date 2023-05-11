@@ -1,0 +1,31 @@
+.deliveryPostIt{
+    display: flex;
+    gap: 15px;
+    padding: 12px;
+    overflow: scroll;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 80%;
+}
+.postItContainer2{
+    display: flex;
+    gap: 15px;
+    padding: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.orderPostIt{
+    background-color: yellow;
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+}
+.postItClientName{
+    justify-content: center;
+    display: flex;
+    font-weight: bold;
+    font-size: 22px;
+}
+.productNameQuantContainer{
+    font-size: 20px;
+}
