@@ -1,0 +1,57 @@
+.deliverGralContainer{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.redHeaderCont {
+    background-color: rgb(241 9 9 / 90%);
+    height: 15%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.headerImg{
+    width: 36%;
+    height: 100%;
+}
+.tittle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    font-weight: bold;
+    color: white;
+}
+.headerWaitressToDeliver, .headerWaiterToDeliver{
+    height: 100%;
+    width: 50%;
+}
+.waitersContainer{
+    display: flex;
+}
+.deliveryView{
+    background-color:#29ae2959;
+    height: 85%;
+    width: 100%;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow: scroll;
+}
+.orderPostIt{
+    background-color: yellow;
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+}
+.postItClientName{
+    justify-content: center;
+    display: flex;
+    font-weight: bold;
+    font-size: 22px;
+}
+.productNameQuantContainer{
+    font-size: 20px;
+}

@@ -22,12 +22,15 @@
 .waitersContainer{
     display: flex;
 }
-.waitersName{
-    display: flex;
-    justify-content: flex-start;
-    color: #FFE604;
-    font-size: 25px;
-    margin: 0;
+.ordersToDeliver{
+    width: 45%;
+    height: 80%;
+    margin: 10px;
+    border-radius: 10px;
+    font-size: 30px;
+    background-color: #50ec50c4;
+    color: white;
+    font-weight: bold;
 }
 .mainAndItemsCont{
     display: flex;

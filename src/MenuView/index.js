@@ -6,6 +6,7 @@ import Product from './Product'
 import OrderedItems from './OrderList'
 import { useEffect, useState } from 'react'
 import { getCookie } from '../Utils'
+import { useNavigate } from 'react-router-dom';
 
 function MenuView() {
 
@@ -57,6 +58,10 @@ function MenuView() {
                 setallDayMenu(productosAlmuerzo);
             }); 
     }, []);
+    const navigate = useNavigate();
+    const redirectToDeliverOrders = () => {
+        navigate('/deliver');
+    }
     return(
         <div className="menuGralContainer">
             <div className="redHeaderCont">
@@ -64,7 +69,7 @@ function MenuView() {
                 <div className='waitersContainer'>
                     <img className='headerWaitress' src={waitress} alt='logo header meserA'/>
                     <img className='headerWaiter' src={waiter} alt='logo header mesero'/>
-                    <p className='waitersName'>:__________</p>
+                    <button className='ordersToDeliver' onClick={redirectToDeliverOrders}>Entregar Orden</button>
                 </div>
             </div>
             <div className='mainAndItemsCont'>
