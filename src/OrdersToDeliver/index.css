@@ -55,3 +55,16 @@
 .productNameQuantContainer{
     font-size: 20px;
 }
+.deleteBtnContainer{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+.deleteButton{
+    width: 80%;
+    font-size: 25px;
+    font-weight: bold;
+    background-color: #39b32d;
+    color: white;
+    border-radius: 10px;
+}

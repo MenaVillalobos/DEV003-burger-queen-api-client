@@ -13,6 +13,7 @@ function OdersToDeliver () {
     const [deletedOrder, setDeletedOrder] = useState([]);
 
     const getOrdersRequest = () => {
+        console.log('SE HACE LA PETICION GET!!!')
         const getCookieResult = getCookie('token');
         const response = fetch('http://localhost:8080/orders', {
             headers: {
@@ -33,6 +34,7 @@ function OdersToDeliver () {
         })
     }
     const deleteDeliveredOrders = (id) => {
+        console.log('SE BORRA LA ORDENNN')
         const getCookieResult = getCookie('token');
         fetch('http://localhost:8080/orders/'+ id, {
             method: 'DELETE',
@@ -46,13 +48,21 @@ function OdersToDeliver () {
             const showDeletedOrders = json;
             console.log(showDeletedOrders);
             setDeletedOrder(showDeletedOrders);
+            console.log('ACA YA SE BORRÒ PERO FALTA ACTUALIZAR')
             getOrdersRequest();
         })
     }
+
+    const coordinates = (event) => {
+        console.log('X: ' +event.clientX, 'Y: ' + event.clientY);
+    }
     
-    useEffect(() => {
+    useEffect(() => {//MONTAJE DEL COMPONENTE!
+        console.log('esto es lo primero que se ejecuta, se monta el componente');
         getOrdersRequest();
+        document.addEventListener('click', coordinates);
     }, [])
+
     return(
         <div className='deliverGralContainer'>
             <header className="redHeaderCont">
@@ -76,7 +86,9 @@ function OdersToDeliver () {
                                         return(<div className='postItProduct'>({producto.quantity}) {producto.name}</div>)
                                     })}
                                 </div>
-                                <button onClick={ () => deleteDeliveredOrders(order.id)}>DELETE</button>
+                                <div className='deleteBtnContainer'>
+                                    <button className='deleteButton' onClick={ () => deleteDeliveredOrders(order.id)}>¡Entregado!</button>
+                                </div>
                             </div>)
                         }
                     )}
