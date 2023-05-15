@@ -5,10 +5,12 @@ import waiter from '../imgsBQ/UserHist2/waiter1stOpt.png'
 // import DeliveryOrders from '../ChefView/Delivery'
 import { useEffect, useState } from 'react'
 import { getCookie } from '../Utils'
+import { json } from 'react-router-dom'
 
 function OdersToDeliver () {
     const [getOrders, setGetOrders] = useState([]);
     const [deliveredOrders, setDeliveredOrders] = useState([]);
+    const [deletedOrder, setDeletedOrder] = useState([]);
 
     const getOrdersRequest = () => {
         const getCookieResult = getCookie('token');
@@ -28,6 +30,23 @@ function OdersToDeliver () {
                 return (order.status === 'delivered')
             })
             setDeliveredOrders(statusDelivered);
+        })
+    }
+    const deleteDeliveredOrders = (id) => {
+        const getCookieResult = getCookie('token');
+        fetch('http://localhost:8080/orders/'+ id, {
+            method: 'DELETE',
+            headers: {
+                'Content-type': 'application/json',
+                'Authorization': `Bearer ${getCookieResult}`
+            },
+        })
+        .then(answer => answer.json())
+        .then( json => {
+            const showDeletedOrders = json;
+            console.log(showDeletedOrders);
+            setDeletedOrder(showDeletedOrders);
+            getOrdersRequest();
         })
     }
     
@@ -57,6 +76,7 @@ function OdersToDeliver () {
                                         return(<div className='postItProduct'>({producto.quantity}) {producto.name}</div>)
                                     })}
                                 </div>
+                                <button onClick={ () => deleteDeliveredOrders(order.id)}>DELETE</button>
                             </div>)
                         }
                     )}
