@@ -1,0 +1,68 @@
+.adminViewGralContainer{
+    height: 100%;
+    width: 100%;
+}
+.adminHeader{
+    height: 15%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.adminLogoImg{
+    height: 100%;
+    width: 30%;
+}
+.helloAdmin{
+    font-size: 40px;
+    font-weight: bolder;
+    background-color: orange;
+    color: white;
+    height: 40%;
+    padding: 6px;
+}
+.staffHeaderImg{
+    height: 100%;
+    width: 20%;
+}
+.employeesInitialPage{
+    height: 85%;
+    width: 100%;
+    background-color: #ecff4545;
+}
+.addEmployeeContainer{
+    display: flex;
+    justify-content: flex-end;
+    padding: 8px;
+}
+.addEmployeeBtn{
+    background: none;
+    border: none;
+}
+.addEmployeesIcon{
+    width: 75px;
+}
+.employeesDataContainer{
+    height: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+}
+.adminsContainer{
+    background-color: aqua;
+}
+.chefsContainer{
+    background-color:#ff81ca;
+}
+.waiterContainer{
+    background-color: orange;
+}
+.adminsContainer, .chefsContainer, .waiterContainer{
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 20px;
+    border: 1px solid #333333;
+}

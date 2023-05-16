@@ -66,7 +66,7 @@ function MenuView() {
         <div className="menuGralContainer">
             <div className="redHeaderCont">
                 <img className='headerImg' src={redHeader} alt='logo del header'/>
-                <div className='waitersContainer'>
+                <div className='waitersContainer2'>
                     <img className='headerWaitress' src={waitress} alt='logo header meserA'/>
                     <img className='headerWaiter' src={waiter} alt='logo header mesero'/>
                     <button className='ordersToDeliver' onClick={redirectToDeliverOrders}>Entregar Orden</button>

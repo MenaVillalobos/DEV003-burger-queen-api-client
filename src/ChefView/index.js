@@ -55,7 +55,7 @@ function ChefView() {
     }
     return(
         <div className="chefViewGralContainer">
-            <div className="redHeader">
+            <header className="redHeader">
                 <img className='headerImg' src={redHeader} alt='logo del header'/>
                 <div className='welcomeKitchenLetter'>
                     ¡Bienvenidx a cocina!
@@ -64,7 +64,7 @@ function ChefView() {
                     <img className='headerFemChef' src={femChef} alt='logo header chef fem'/>
                     <img className='headerChef' src={chef} alt='logo header chef'/>
                 </div>
-            </div>
+            </header>
             <div className='ticketsContainer'>
                 <div className='ticketsViewContainer'>
                     <div className='ticketsViewLetter'>
