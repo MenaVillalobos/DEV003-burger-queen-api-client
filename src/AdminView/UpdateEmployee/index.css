@@ -3,14 +3,24 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    background-color: #ffa500c2;
 }
 .data{
     display: flex;
     flex-direction: column;
+    align-items: flex-end;
 }
 .description{
     font-weight: bolder;
+    font-size: 25px;
 }
-.description, .inputTxt{
-    font-size: 20px;
+.inputTxt{
+    font-size: 25px;
+    background: #fffffb7d;
+    padding: 6px;
+}
+.submitButton{
+    font-size: 25px;
+    font-weight: bold;
+    margin: 5px;
 }

@@ -9,19 +9,19 @@ function UpdateData ({userData}) {
         console.log('AQUI VA LA VALIDACION DE LOS DATOS Y PETICION')
     }
     return (
-        <div className='formGralContainer'>
+        <div className ='formGralContainer'>
             {userData.map((employee) => {
-                return (<form onSubmit={handleSubmit} className='data'>
-                    <label className='description'> Empleadx:
-                        <input value={employee.name} type="text" className='inputTxt' />
+                return (<form onSubmit = {handleSubmit} className ='data'>
+                    <label className ='description'> Empleadx:
+                        <input value = {employee.name} type = 'text' className = 'inputTxt' />
                     </label>
                     <label className='description'> Cargo:
-                        <input value={employee.role} type="text" className='inputTxt' />
+                        <input value = {employee.role} type = 'text' className = 'inputTxt' />
                     </label>
-                    <label className='description'> E-mail:
-                        <input value={employee.email} type="text" className='inputTxt' />
+                    <label className ='description'> E-mail:
+                        <input value = {employee.email} type = 'text' className ='inputTxt' />
                     </label>
-                    <input type="submit" value="Submit" />
+                    <input type = 'submit' value = 'Editar' className ='submitButton' />
                 </form>)
             })}
         </div>
