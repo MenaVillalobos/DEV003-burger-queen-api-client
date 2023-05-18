@@ -2,7 +2,7 @@ import './index.css'
 import update from '../../imgsBQ/UserHist5/updateIcon.png'
 import deleteEmpIcon from '../../imgsBQ/UserHist5/deleteEmp.png'
 
-function EmployeesRoles ({employeesGralData, roleColor, getAllEmployees, removeEmployees}) {
+function EmployeesRoles ({employeesGralData, roleColor, getAllEmployees, removeEmployees, updateEmployeeData}) {
     console.log(employeesGralData);
     return(
         <div className='employeeDataContainer'>
@@ -12,7 +12,7 @@ function EmployeesRoles ({employeesGralData, roleColor, getAllEmployees, removeE
                     <div className='employeeRole'>{employee.role}</div>
                     <div className='employeeEmail'>{employee.email}</div>
                     <div className='deleteUpdateContainer'>
-                        <button className='updateEmployeeButton'>
+                        <button className='updateEmployeeButton' onClick={() => updateEmployeeData(employee.id)}>
                             <img src={update} alt='updateBtnIcon' className='updateButtonIcon'></img>
                         </button>
                         <button className='deleteEmployeeButton' onClick={() => removeEmployees(employee.id)}>

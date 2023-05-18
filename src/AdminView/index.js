@@ -5,13 +5,15 @@ import staffIcon from '../imgsBQ/UserHist5/staffIcon.png'
 import { useEffect, useState } from 'react'
 import EmployeesRoles from './EmployeesRoles'
 import addIcon from '../imgsBQ/UserHist5/addEmpIcon.png'
-import { json } from 'react-router-dom'
+import UpdateData from './UpdateEmployee'
 
 function AdminView() {
     const [employeesData, setEmployeesData] = useState([]);
     const [adminEmployee, setAdminEmployee] = useState([]);
     const [chefEmployee, setChefEmployee] = useState([]);
     const [waiterEmployee, setWaiterEmployee] = useState([]);
+    const [isUpdatingData, setIsUpdatingData] = useState(false);
+    const [userToUpdate, setUserToUpdate] = useState();
 
     const getEmployeesList = () => {
         const getCookieResult = getCookie('token');
@@ -39,6 +41,29 @@ function AdminView() {
             setWaiterEmployee(waiterRole);
         })
     }
+    const updateEmployee = (id) => {
+        setIsUpdatingData(!isUpdatingData);
+        if (!isUpdatingData) {
+            const employeeToUpdate = employeesData.filter((user) => {
+                return(user.id === id)
+            })
+            console.log(employeeToUpdate);
+            setUserToUpdate(employeeToUpdate);
+        }
+        // const getCookieResult = getCookie('token');
+        // fetch('http://localhost:8080/users/' + id, {
+        //     method: 'PATCH',
+        //     headers: {
+        //         'Content-type': 'application/json',
+        //         'Authorization': `Bearer ${getCookieResult}`
+        //     },
+        // }).then(answer => answer.json())
+        // .then(json => {
+        //     console.log(json);
+        //     getEmployeesList();
+        // })
+    } 
+
     const removeEmployee = (id) => {
         const getCookieResult = getCookie('token');
         fetch('http://localhost:8080/users/' + id, {
@@ -70,15 +95,22 @@ function AdminView() {
                     </button>
                 </section>
                 <main className='employeesDataContainer'>
-                    <section className='adminsList'>
-                        <EmployeesRoles employeesGralData = {adminEmployee} roleColor='adminsContainer' getAllEmployees = {getEmployeesList} removeEmployees = {removeEmployee}/>
-                    </section>
-                    <section className='chefsList'>
-                        <EmployeesRoles employeesGralData = {chefEmployee} roleColor='chefsContainer' getAllEmployees = {getEmployeesList} removeEmployees = {removeEmployee}/>
-                    </section>
-                    <section className='waitersList'>
-                        <EmployeesRoles employeesGralData = {waiterEmployee} roleColor='waiterContainer' getAllEmployees = {getEmployeesList} removeEmployees = {removeEmployee}/>
-                    </section>
+                    <div className='employeesPostIt'>
+                        <section className='adminsList'>
+                            <EmployeesRoles employeesGralData = {adminEmployee} roleColor='adminsContainer' getAllEmployees = {getEmployeesList} removeEmployees = {removeEmployee} updateEmployeeData = {updateEmployee}/>
+                        </section>
+                        <section className='chefsList'>
+                            <EmployeesRoles employeesGralData = {chefEmployee} roleColor='chefsContainer' getAllEmployees = {getEmployeesList} removeEmployees = {removeEmployee} updateEmployeeData = {updateEmployee}/>
+                        </section>
+                        <section className='waitersList'>
+                            <EmployeesRoles employeesGralData = {waiterEmployee} roleColor='waiterContainer' getAllEmployees = {getEmployeesList} removeEmployees = {removeEmployee} updateEmployeeData = {updateEmployee}/>
+                        </section>
+                    </div>
+                    <div className='updateContainer'>
+                        <section>
+                            {isUpdatingData && <UpdateData userData ={userToUpdate}/>}
+                        </section>
+                    </div>
                 </main>
             </div>
         </div>

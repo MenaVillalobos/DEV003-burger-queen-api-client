@@ -43,6 +43,10 @@
     width: 75px;
 }
 .employeesDataContainer{
+    display: flex;
+    flex-direction: column;
+}
+.employeesPostIt{
     height: 80%;
     display: flex;
     flex-direction: row;

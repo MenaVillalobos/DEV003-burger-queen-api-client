@@ -60,7 +60,7 @@ function ChefView() {
                 <div className='welcomeKitchenLetter'>
                     ¡Bienvenidx a cocina!
                 </div>
-                <div className='chefsContainer'>
+                <div className='cheffContainer'>
                     <img className='headerFemChef' src={femChef} alt='logo header chef fem'/>
                     <img className='headerChef' src={chef} alt='logo header chef'/>
                 </div>
