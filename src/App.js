@@ -4,6 +4,7 @@ import MenuView from './MenuView';
 import ChefView from './ChefView';
 import OdersToDeliver from './OrdersToDeliver';
 import AdminView from './AdminView';
+import InventoryView from './AdminView/InventoryView';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/chefview" element={<ChefView />} />
         <Route path="/deliver" element={<OdersToDeliver />} />
         <Route path="/admin" element={<AdminView />} />
+        <Route path="/inventoryview" element={<InventoryView />} />
       </Routes>
     </>
   );

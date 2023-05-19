@@ -31,7 +31,7 @@ function MenuView() {
         console.log('SE CREÓ EL MENU!!!!!')
         const getCookieResult = getCookie('token');
         console.log(getCookieResult);
-        const response = fetch('http://localhost:8080/products', {
+        fetch('http://localhost:8080/products', {
             headers: {
                 'Content-type': 'application/json',
                 'Authorization': `Bearer ${getCookieResult}`
