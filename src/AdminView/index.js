@@ -108,7 +108,7 @@ function AdminView() {
                     </div>
                     <div className='updateContainer'>
                         <section>
-                            {isUpdatingData && <UpdateData userData ={userToUpdate}/>}
+                            {isUpdatingData && <UpdateData userData ={userToUpdate} getEmployeesRequest = {getEmployeesList} showForm = {setIsUpdatingData}/>}
                         </section>
                     </div>
                 </main>

@@ -28,7 +28,7 @@ function LogInForm() {
         }).then(answer => answer.json())
         .then(answer => {
             console.log(answer);
-            if (answer === 'Cannot find user') {
+            if (answer === 'Cannot find user'|| answer === 'Incorrect password') {
                 setloginError(true);
             } else {
                 document.cookie = `token = ${answer.accessToken}`; 
