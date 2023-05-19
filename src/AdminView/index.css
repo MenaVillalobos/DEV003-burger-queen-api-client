@@ -45,6 +45,7 @@
 .employeesDataContainer{
     display: flex;
     flex-direction: column;
+    height: 60%;
 }
 .employeesPostIt{
     height: 80%;

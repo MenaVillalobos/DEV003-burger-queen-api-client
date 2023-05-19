@@ -20,7 +20,6 @@ function UpdateData ({userData, getEmployeesRequest, showForm}) {
     }
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log('AQUI VA LA VALIDACION DE LOS DATOS Y PETICION')
         const bodyRequest = {
             name,
             role,

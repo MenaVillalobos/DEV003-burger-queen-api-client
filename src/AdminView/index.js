@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react'
 import EmployeesRoles from './EmployeesRoles'
 import addIcon from '../imgsBQ/UserHist5/addEmpIcon.png'
 import UpdateData from './UpdateEmployee'
+import AddNewEmployee from './AddEmployee'
 
 function AdminView() {
     const [employeesData, setEmployeesData] = useState([]);
@@ -106,9 +107,12 @@ function AdminView() {
                             <EmployeesRoles employeesGralData = {waiterEmployee} roleColor='waiterContainer' getAllEmployees = {getEmployeesList} removeEmployees = {removeEmployee} updateEmployeeData = {updateEmployee}/>
                         </section>
                     </div>
-                    <div className='updateContainer'>
-                        <section>
+                    <div className='updateAddFormContainer'>
+                        <section className='updateFormContainer'>
                             {isUpdatingData && <UpdateData userData ={userToUpdate} getEmployeesRequest = {getEmployeesList} showForm = {setIsUpdatingData}/>}
+                        </section>
+                        <section className='addNewEmployeeContainer'>
+                            <AddNewEmployee />
                         </section>
                     </div>
                 </main>

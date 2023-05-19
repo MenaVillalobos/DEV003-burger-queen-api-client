@@ -1,0 +1,30 @@
+.newEmployeeFormContainer{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: #ffa500c2;
+}
+.entryData{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.tagName{
+    font-weight: bold;
+}
+.inputText{
+    background: #fffffb7d;
+    padding: 1px;
+}
+.tagName, .inputText{
+    font-size: 22px;
+}
+.submitAddEmployeeBtn{
+    font-size: 24px;
+    font-weight: bold;
+}
+.submitContainer{
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px;
+}
