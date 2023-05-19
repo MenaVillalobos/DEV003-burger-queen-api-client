@@ -1,5 +1,4 @@
 import './index.css'
-import { getCookie } from '../../Utils'
 
 function AddNewEmployee ({getEmployeesRequest, showAddForm}) {
     // const getAllEmployees = () => {

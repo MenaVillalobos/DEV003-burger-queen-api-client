@@ -44,7 +44,7 @@ function LogInForm() {
                 <p className='welcomeTxtMsg'>¡Bienvenidx!</p>
             </div>
             <div className='logoWelcomePage'>
-                <img className='welcomeRedLogo' src={logo}/>
+                <img className='welcomeRedLogo' src={logo} alt='burgerqueen logo'/>
             </div>
             <div className='userForm'>
                 <div className='logInMessage'>
