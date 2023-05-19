@@ -55,26 +55,7 @@ function AdminView() {
     }
     const addingNewEmployee = (id) => {
         setAddedNewEmployee(!addedNewEmployee);
-        // if (!addedNewEmployee) {
-        //     const newEmployee = employeesData.filter((user) => {
-        //         return(user.id === id)
-        //     })
-        //     setThisIsTheNewEmployee(newEmployee);
-        // }
     }
-        // const getCookieResult = getCookie('token');
-        // fetch('http://localhost:8080/users/' + id, {
-        //     method: 'PATCH',
-        //     headers: {
-        //         'Content-type': 'application/json',
-        //         'Authorization': `Bearer ${getCookieResult}`
-        //     },
-        // }).then(answer => answer.json())
-        // .then(json => {
-        //     console.log(json);
-        //     getEmployeesList();
-        // })
-
 
     const removeEmployee = (id) => {
         const getCookieResult = getCookie('token');

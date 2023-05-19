@@ -2,10 +2,8 @@ import './index.css'
 import redHeader from '../imgsBQ/UserHist2/redHeaderMenuView.png'
 import waitress from '../imgsBQ/UserHist2/waitress1stOpt.png'
 import waiter from '../imgsBQ/UserHist2/waiter1stOpt.png'
-// import DeliveryOrders from '../ChefView/Delivery'
 import { useEffect, useState } from 'react'
 import { getCookie } from '../Utils'
-import { json } from 'react-router-dom'
 
 function OdersToDeliver () {
     const [getOrders, setGetOrders] = useState([]);

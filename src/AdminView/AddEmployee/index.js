@@ -1,16 +1,6 @@
 import './index.css'
 
 function AddNewEmployee ({getEmployeesRequest, showAddForm}) {
-    // const getAllEmployees = () => {
-    //     const getCookieResult = getCookie('token');
-    //     fetch('http://localhost:8080/users', {
-    //         headers: {
-    //             'Content-type': 'application/json',
-    //             'Authorization': `Bearer ${getCookieResult}`
-    //         },
-    //     })
-    //     .then(answer => answer.json())
-    // }
     const handleSubmitAddEmp = (event) => {
         event.preventDefault();
         const newUserName = document.getElementById('username').value;
