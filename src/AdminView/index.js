@@ -15,6 +15,7 @@ function AdminView() {
     const [waiterEmployee, setWaiterEmployee] = useState([]);
     const [isUpdatingData, setIsUpdatingData] = useState(false);
     const [userToUpdate, setUserToUpdate] = useState();
+    const [addedNewEmployee, setAddedNewEmployee] = useState(false); 
 
     const getEmployeesList = () => {
         const getCookieResult = getCookie('token');
@@ -51,6 +52,16 @@ function AdminView() {
             console.log(employeeToUpdate);
             setUserToUpdate(employeeToUpdate);
         }
+    }
+    const addingNewEmployee = (id) => {
+        setAddedNewEmployee(!addedNewEmployee);
+        // if (!addedNewEmployee) {
+        //     const newEmployee = employeesData.filter((user) => {
+        //         return(user.id === id)
+        //     })
+        //     setThisIsTheNewEmployee(newEmployee);
+        // }
+    }
         // const getCookieResult = getCookie('token');
         // fetch('http://localhost:8080/users/' + id, {
         //     method: 'PATCH',
@@ -63,7 +74,7 @@ function AdminView() {
         //     console.log(json);
         //     getEmployeesList();
         // })
-    } 
+
 
     const removeEmployee = (id) => {
         const getCookieResult = getCookie('token');
@@ -91,8 +102,8 @@ function AdminView() {
             </header>
             <div className='employeesInitialPage'>
                 <section className='addEmployeeContainer'>
-                    <button className='addEmployeeBtn'>
-                        <img src={addIcon} className='addEmployeesIcon'></img>
+                    <button className='addEmployeeBtn' onClick={() => addingNewEmployee()}>
+                        <img src={addIcon} className='addEmployeesIcon' alt='add employee icon' ></img>
                     </button>
                 </section>
                 <main className='employeesDataContainer'>
@@ -112,7 +123,7 @@ function AdminView() {
                             {isUpdatingData && <UpdateData userData ={userToUpdate} getEmployeesRequest = {getEmployeesList} showForm = {setIsUpdatingData}/>}
                         </section>
                         <section className='addNewEmployeeContainer'>
-                            <AddNewEmployee />
+                            {addedNewEmployee && <AddNewEmployee getEmployeesRequest = {getEmployeesList} showAddForm = {setAddedNewEmployee} idk = {addingNewEmployee}/>}
                         </section>
                     </div>
                 </main>
