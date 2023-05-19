@@ -82,7 +82,10 @@ function AdminView() {
                 <img className='staffHeaderImg' src={staffIcon} alt='staff icon'></img>
             </header>
             <div className='employeesInitialPage'>
-                <section className='addEmployeeContainer'>
+                <section className='buttonsContainer'>
+                    <div className='inventoryBtnContainer'>
+                        <button className='inventoryBtn'> VER INVENTARIO </button>
+                    </div>
                     <button className='addEmployeeBtn' onClick={() => addingNewEmployee()}>
                         <img src={addIcon} className='addEmployeesIcon' alt='add employee icon' ></img>
                     </button>
