@@ -17,9 +17,8 @@
     justify-content: space-around;
     flex-wrap: wrap;
     overflow: scroll;
-    height: 70%;
+    height: 90%;
     width: 50%;
-    margin-top: 25px;
 }
 .inventoryList{
     display: flex;
@@ -31,7 +30,7 @@
     padding: 12px;
     margin: 8px;
     border-radius: 10px;
-    background: red;
+    background: #ff0000cf;
 }
 .productname, .productPrice{
     color: white;

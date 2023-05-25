@@ -7,6 +7,7 @@ import EmployeesRoles from './EmployeesRoles'
 import addIcon from '../imgsBQ/UserHist5/addEmpIcon.png'
 import UpdateData from './UpdateEmployee'
 import AddNewEmployee from './AddEmployee'
+import { useNavigate } from 'react-router-dom'
 
 function AdminView() {
     const [employeesData, setEmployeesData] = useState([]);
@@ -74,6 +75,11 @@ function AdminView() {
     useEffect(() => {
         getEmployeesList();
     }, [])
+
+    const navigate = useNavigate();
+    const redirectToInventaryView = () => {
+        navigate('/inventoryview');
+    }
     return(
         <div className='adminViewGralContainer'>
             <header className='adminHeader'>
@@ -84,7 +90,7 @@ function AdminView() {
             <div className='employeesInitialPage'>
                 <section className='buttonsContainer'>
                     <div className='inventoryBtnContainer'>
-                        <button className='inventoryBtn'> VER INVENTARIO </button>
+                        <button className='inventoryBtn' onClick={redirectToInventaryView}> VER INVENTARIO </button>
                     </div>
                     <button className='addEmployeeBtn' onClick={() => addingNewEmployee()}>
                         <img src={addIcon} className='addEmployeesIcon' alt='add employee icon' ></img>
