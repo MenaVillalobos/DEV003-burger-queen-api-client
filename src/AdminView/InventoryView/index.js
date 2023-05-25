@@ -2,11 +2,12 @@ import './index.css'
 import { getCookie } from '../../Utils'
 import { useState, useEffect } from 'react';
 import AddToInventory from '../InventoryView/AddItems'
+import UpdateInventoryProducts from './UpdateItems'
 
 function InventoryView () {
     const [viewAllProducts, setViewAllProducts] = useState([]);
     const [isAddingProducts, setIsAddingProducts] = useState(false);
-    const [isDeletingProducts, setIsDeletingProducts] = useState(false);
+    const [isUpdatingProducts, setIsUpdatingProducts] = useState(false);
 
     const showProductsRequest = () => {
         const getCookieResult = getCookie('token');
@@ -22,6 +23,13 @@ function InventoryView () {
                 setViewAllProducts(json);
             })
         }
+    const addProductsFn = (id) => {
+        setIsAddingProducts(!isAddingProducts);
+    }
+    const updateProductsFn = (id) => {
+        setIsUpdatingProducts(!isUpdatingProducts);
+    }
+
         useEffect(() => {
             showProductsRequest();
         }, [])
@@ -40,16 +48,17 @@ function InventoryView () {
                         </div>)
                     })}
                 </section>
-                <section className='addOrDeleteContainer'>
+                <section className='addOrUpdateContainer'>
                     <div className='addProductContainer'>
                         <section className='addProductsSection'>
-                            <button className='addProduct'>AGREGAR PRODUCTO</button>
-                            <AddToInventory/>
+                            <button className='addProduct' onClick={() => addProductsFn()}>AGREGAR PRODUCTO</button>
+                            { isAddingProducts && <AddToInventory showAddProductsMenu = {addProductsFn}/>}
                         </section>
                     </div>
-                    <div className='deleteProductContainer'>
+                    <div className='updateProductContainer'>
                         <section className='addProductsSection'>
-                            <button className='deleteProduct'>ELIMINAR PRODUCTO</button>
+                            <button className='updateProduct' onClick={() => updateProductsFn()}>ACTUALIZAR PRODUCTO</button>
+                            { isUpdatingProducts && <UpdateInventoryProducts showUpdateProductsMenu = {updateProductsFn}/>}
                         </section>
                     </div>
                 </section>

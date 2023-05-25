@@ -41,16 +41,16 @@
     font-weight: bold;
     margin-bottom: 10px;
 }
-.addOrDeleteContainer{
+.addOrUpdateContainer{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
 }
-.addProductContainer, .deleteProductContainer{
+.addProductContainer, .updateProductContainer{
     height: 100%;
     width: 100%;
 }
-.deleteProduct, .addProduct{
+.updateProduct, .addProduct{
     background-color: yellow;
     color: red;
     font-weight: bolder;
@@ -59,7 +59,7 @@
     border-radius: 5px;
     padding: 10px;
 }
-.deleteProduct{
+.updateProduct{
     background-color: orange;
     color: white;
 }
