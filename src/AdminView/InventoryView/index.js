@@ -1,9 +1,13 @@
 import './index.css'
 import { getCookie } from '../../Utils'
 import { useState, useEffect } from 'react';
+import AddToInventory from '../InventoryView/AddItems'
 
 function InventoryView () {
     const [viewAllProducts, setViewAllProducts] = useState([]);
+    const [isAddingProducts, setIsAddingProducts] = useState(false);
+    const [isDeletingProducts, setIsDeletingProducts] = useState(false);
+
     const showProductsRequest = () => {
         const getCookieResult = getCookie('token');
         fetch('http://localhost:8080/products', {
@@ -27,7 +31,7 @@ function InventoryView () {
                 HOLA
             </header>
             <main className='inventoryMain'>
-                <div className='inventoryListContainer'>
+                <section className='inventoryListContainer'>
                     {viewAllProducts.map((product) => {
                         return(<div className='inventoryList'>
                             <img className='images' src={product.image}/>
@@ -35,7 +39,20 @@ function InventoryView () {
                             <div className='productPrice'>{'$ ' + product.price}</div>
                         </div>)
                     })}
-                </div>
+                </section>
+                <section className='addOrDeleteContainer'>
+                    <div className='addProductContainer'>
+                        <section className='addProductsSection'>
+                            <button className='addProduct'>AGREGAR PRODUCTO</button>
+                            <AddToInventory/>
+                        </section>
+                    </div>
+                    <div className='deleteProductContainer'>
+                        <section className='addProductsSection'>
+                            <button className='deleteProduct'>ELIMINAR PRODUCTO</button>
+                        </section>
+                    </div>
+                </section>
             </main>
         </div>
     )

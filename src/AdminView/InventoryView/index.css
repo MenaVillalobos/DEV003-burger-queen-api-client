@@ -10,6 +10,8 @@
 .inventoryMain{
     height: 80%;
     width: 100%;
+    display: flex;
+    flex-direction: row;
 }
 .inventoryListContainer{
     flex-direction: row;
@@ -38,4 +40,26 @@
     font-family: revert;
     font-weight: bold;
     margin-bottom: 10px;
+}
+.addOrDeleteContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.addProductContainer, .deleteProductContainer{
+    height: 100%;
+    width: 100%;
+}
+.deleteProduct, .addProduct{
+    background-color: yellow;
+    color: red;
+    font-weight: bolder;
+    font-size: 28px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+}
+.deleteProduct{
+    background-color: orange;
+    color: white;
 }
