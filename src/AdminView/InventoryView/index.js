@@ -1,4 +1,6 @@
 import './index.css'
+import adminLogo from '../../imgsBQ/UserHist5/adminLogo.png'
+import staffIcon from '../../imgsBQ/UserHist5/staffIcon.png'
 import { getCookie } from '../../Utils'
 import { useState, useEffect } from 'react';
 import AddToInventory from '../InventoryView/AddItems'
@@ -36,7 +38,9 @@ function InventoryView () {
     return(
         <div className='inventoryViewGralContainer'>
             <header className='inventoryHeader'>
-                HOLA
+            <img className='adminLogoImg' src={adminLogo} alt='logo del header admin view'></img>
+                <span className='helloInventory'>¡Bienvenidx A Inventario!</span>
+                <img className='staffHeaderImg' src={staffIcon} alt='staff icon'></img>
             </header>
             <main className='inventoryMain'>
                 <section className='inventoryListContainer'>
@@ -52,7 +56,7 @@ function InventoryView () {
                     <div className='addProductContainer'>
                         <section className='addProductsSection'>
                             <button className='addProduct' onClick={() => addProductsFn()}>AGREGAR PRODUCTO</button>
-                            { isAddingProducts && <AddToInventory showAddProductsMenu = {addProductsFn}/>}
+                            { isAddingProducts && <AddToInventory showAddProductsMenu = {addProductsFn} showProducts = {showProductsRequest} showAddProductForm = {setIsAddingProducts}/>}
                         </section>
                     </div>
                     <div className='updateProductContainer'>

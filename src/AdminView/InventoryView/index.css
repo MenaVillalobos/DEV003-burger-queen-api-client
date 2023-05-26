@@ -4,14 +4,28 @@
 }
 .inventoryHeader{
     height: 20%;
-    background: aliceblue;
     width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.helloInventory{
+    font-size: 40px;
+    font-weight: bolder;
+    background-color: orange;
+    color: white;
+    height: 40%;
+    padding: 6px;
+}
+.adminLogoImg {
+    height: 100%;
+    width: 35%;
 }
 .inventoryMain{
     height: 80%;
     width: 100%;
     display: flex;
     flex-direction: row;
+    background-color: #ecff4545;
 }
 .inventoryListContainer{
     flex-direction: row;
@@ -60,6 +74,6 @@
     padding: 10px;
 }
 .updateProduct{
-    background-color: orange;
-    color: white;
+    background-color:  #ff7200;
+    color: yellow;
 }
