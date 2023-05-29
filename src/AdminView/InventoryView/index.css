@@ -81,3 +81,18 @@
     background-color:  #ff7200;
     color: yellow;
 }
+.breakfastItems, .allDayItems{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.breakfastCategory, .allDayCategory{
+    font-size: 26px;
+    font-weight: bolder;
+    color: red;
+    background: white;
+    border: solid 2px black;
+    border-radius: 5px;
+    padding: 5px;
+}

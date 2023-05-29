@@ -8,6 +8,8 @@ import UpdateInventoryProducts from './UpdateItems'
 
 function InventoryView () {
     const [viewAllProducts, setViewAllProducts] = useState([]);
+    const [breakfastItems, setBreakfastItems] = useState([]);
+    const [allDayItems, setAllDayItems] = useState([]);
     const [isAddingProducts, setIsAddingProducts] = useState(false);
     const [isUpdatingProducts, setIsUpdatingProducts] = useState(false);
 
@@ -23,6 +25,14 @@ function InventoryView () {
             .then(json => {
                 console.log(json);
                 setViewAllProducts(json);
+                const desayunoItems = json.filter((product) => {
+                    return (product.type === 'Desayuno')
+                })
+                setBreakfastItems(desayunoItems);
+                const almuerzoItems = json.filter((product) => {
+                    return (product.type === 'Almuerzo')
+                })
+                setAllDayItems(almuerzoItems);
             })
         }
     const addProductsFn = (id) => {
@@ -44,13 +54,35 @@ function InventoryView () {
             </header>
             <main className='inventoryMain'>
                 <section className='inventoryListContainer'>
-                    {viewAllProducts.map((product) => {
+                    <span className='breakfastCategory'>PRODUCTOS MENÚ DESAYUNO</span>
+                    <div className='breakfastItems'>
+                        {breakfastItems.map(
+                            (producto)=> {
+                                return(<div className='inventoryList'>
+                                <img className='images' src={producto.image}/>
+                                <div className='productname'>{producto.name}</div>
+                                <div className='productPrice'>{'$ ' + producto.price}</div>
+                            </div>)
+                        })}
+                    </div>
+                    <span className='allDayCategory'>PRODUCTOS MENÚ TODO EL DÍA</span>
+                    <div className='allDayItems'>
+                        {allDayItems.map(
+                            (producto)=> {
+                                return(<div className='inventoryList'>
+                                <img className='images' src={producto.image}/>
+                                <div className='productname'>{producto.name}</div>
+                                <div className='productPrice'>{'$ ' + producto.price}</div>
+                            </div>)
+                        })}
+                    </div>
+                    {/* {viewAllProducts.map((product) => {
                         return(<div className='inventoryList'>
                             <img className='images' src={product.image}/>
                             <div className='productname'>{product.name}</div>
                             <div className='productPrice'>{'$ ' + product.price}</div>
                         </div>)
-                    })}
+                    })} */}
                 </section>
                 <section className='addOrUpdateContainer'>
                     <div className='addProductContainer'>

@@ -90,7 +90,8 @@
     justify-content: space-around;
     width: 50%;
     flex-wrap: wrap;
-    height: 60%;
+    height: 76%;
+    overflow: scroll;
 }
 .allDayBtns{
     display: flex;
