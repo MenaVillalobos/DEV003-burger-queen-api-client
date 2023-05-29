@@ -58,11 +58,15 @@
 .addOrUpdateContainer{
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    width: 50%;
+    overflow: scroll;
+    height: 90%;
 }
 .addProductContainer, .updateProductContainer{
     height: 100%;
     width: 100%;
+    display: flex;
+    justify-content: center;
 }
 .updateProduct, .addProduct{
     background-color: yellow;

@@ -38,7 +38,7 @@ function AddToInventory ({showProducts, showAddProductForm}) {
         console.log(event.target.value);
     }
     return(<div className='addToInventoryGralContainer'>
-        <form onSubmit={handleSubmitAddProduct} className='entryProductData'>
+        <form onSubmit={handleSubmitAddProduct} className='entryAddProductData'>
             <div className='labelAddToInventoryContainer'>
                 <label className='productTag'> Imagen URL:
                 <div className='inputAddToInventoryContainer'>
@@ -68,8 +68,8 @@ function AddToInventory ({showProducts, showAddProductForm}) {
                 </label>
             </div>
             <div className='submitButtonContainer'>
-                    <input type = 'submit' value = 'Agregar Producto' className ='submitAddProductBtn' />
-                </div>
+                <input type = 'submit' value = 'Agregar Producto' className ='submitAddProductBtn' />
+            </div>
         </form>
     </div>)
 }

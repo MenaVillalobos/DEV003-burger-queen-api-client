@@ -1,0 +1,27 @@
+.productTag{
+    font-size: 22px;
+    font-weight: bold;
+}
+.entryAddProductData{
+    padding: 15px;
+    background-color: #ffa50078;
+    margin: 15px 0px 15px 0px;
+}
+.addProductInputText{
+    font-size: 20px;
+    width: 100%;
+}
+.submitButtonContainer{
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+}
+.submitAddProductBtn{
+    font-size: 25px;
+    font-weight: bolder;
+    background-color: red;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    padding: 7px;
+}
