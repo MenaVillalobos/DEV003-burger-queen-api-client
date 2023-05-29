@@ -61,7 +61,7 @@ function InventoryView () {
                                 return(<div className='inventoryList'>
                                 <img className='images' src={producto.image}/>
                                 <div className='productname'>{producto.name}</div>
-                                <div className='productPrice'>{'$ ' + producto.price}</div>
+                                <div className='productPrice'>{'$' + producto.price}</div>
                             </div>)
                         })}
                     </div>
@@ -76,13 +76,6 @@ function InventoryView () {
                             </div>)
                         })}
                     </div>
-                    {/* {viewAllProducts.map((product) => {
-                        return(<div className='inventoryList'>
-                            <img className='images' src={product.image}/>
-                            <div className='productname'>{product.name}</div>
-                            <div className='productPrice'>{'$ ' + product.price}</div>
-                        </div>)
-                    })} */}
                 </section>
                 <section className='addOrUpdateContainer'>
                     <div className='addProductContainer'>
@@ -92,7 +85,7 @@ function InventoryView () {
                         </section>
                     </div>
                     <div className='updateProductContainer'>
-                        <section className='addProductsSection'>
+                        <section className='updateProductsSection'>
                             <button className='updateProduct' onClick={() => updateProductsFn()}>ACTUALIZAR PRODUCTO</button>
                             { isUpdatingProducts && <UpdateInventoryProducts showUpdateProductsMenu = {updateProductsFn}/>}
                         </section>

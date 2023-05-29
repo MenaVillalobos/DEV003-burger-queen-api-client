@@ -35,6 +35,7 @@ function AddToInventory ({showProducts, showAddProductForm}) {
     }
     const handleImage = (event) => {
         const inputImage = document.getElementById('shouldBeProductImg').value;
+        document.getElementById('previewImg').setAttribute('src', inputImage);
         console.log(event.target.value);
     }
     return(<div className='addToInventoryGralContainer'>
@@ -43,6 +44,13 @@ function AddToInventory ({showProducts, showAddProductForm}) {
                 <label className='productTag'> Imagen URL:
                 <div className='inputAddToInventoryContainer'>
                     <input className='addProductInputText' id='shouldBeProductImg' onChange={handleImage}></input>
+                </div>
+                <div className='imgPreViewContainer'>
+                    <label className='imgPreviewLabel'> Vista previa de imagen:
+                    <div className='inputImgPreview'>
+                        <img className='previewImg' id='previewImg'></img>
+                    </div>
+                    </label>
                 </div>
                 </label>
             </div>

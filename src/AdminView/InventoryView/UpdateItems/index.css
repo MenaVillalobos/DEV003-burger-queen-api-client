@@ -1,0 +1,18 @@
+.entryUpdateProductData{
+    padding: 15px;
+    background-color: #ffa50078;
+    margin: 15px 0px 15px 0px;
+}
+.submitUpdateProductBtn{
+    font-size: 25px;
+    font-weight: bolder;
+    background-color: red;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    padding: 7px;
+}
+.updateProductInputText{
+    width: 100%;
+    font-size: 20px;
+}
